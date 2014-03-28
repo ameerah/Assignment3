@@ -1,0 +1,15 @@
+Author: Name of the software creator (e.g. Jane Doe)
+Date: 23 March 2012
+
+Name: The name of the software (e.g. README file example).
+
+Description: Describe the software, write what it does (e.g. The README file gives the user information about the software, by reading this file the user will know what the software does and how to use it. README files are typically .txt files and can be spelled in a number of different ways, such as Readme.txt, README.txt, ReadMe.txt, or even Read_me.txt, but whether upper or lower case is used they are always called README to get the user's attention).
+
+Instructions: Give the user clear and complete instructions on how to use the software. They can can instructions for configuring and/or installing and/running the software. 
+(e.g. 
+1. Run Example.exe
+2. Click the start button
+3. Enter a number between 0-9
+4. Click OK). 
+
+List of files: List all the files included (e.g. file1.java, file2.java, file3.java, file.txt).
