@@ -14,8 +14,20 @@ public class HashEntry
    
    // set methods
    
-   public void setDetails(String input)
+   public void setDetails(String name, String desc, String size, String filePath)
    {
-      
+      fileName = name;
+      description = desc;
+      fileSize = size;
+      path = filePath;
+   }
+   
+   // constructor method
+   public HashEntry(String name, String desc, String size, String filePath)
+   {
+      fileName = name;
+      description = desc;
+      fileSize = size;
+      path = filePath;
    }
 }

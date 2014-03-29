@@ -6,9 +6,9 @@ public class HashTable
 {
    public void initialiseTable()
    {
-      // creates table of 2D array of strings (the file size is not used or considered in this problem so we do not need to process it as a float)
+      // creates table using array of strings (the file size is not used or considered in this problem so we do not need to process it as a float)
       // so it isn't worth it to use a data structure that stores multiple types of data since they're less efficient when we don't need file size as a float
-      HashEntry[][] table = new HashEntry[7][4];
+      HashEntry[] table = new HashEntry[7];
    }
    
    public void insertElement(HashEntry newItem)
