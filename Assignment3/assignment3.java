@@ -41,7 +41,7 @@ public class assignment3
          name = fileInput.next();
          description = fileInput.next();
          size = fileInput.next();
-         filePath = fileInput.nextLine();
+         filePath = (fileInput.nextLine()).substring(1);
          
          key = getKey(name);
          
