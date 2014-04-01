@@ -46,4 +46,9 @@ public class HashTable
          }
       }
    }
+   
+   public int getLength()
+   {
+      return tableSize;
+   }
 }

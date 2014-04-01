@@ -1,10 +1,6 @@
 // stores each entry of the hash table
 // contains each bit of information for each picture
 
-//import java.nio.file;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 public class HashEntry
 {
    String fileName = null;
@@ -12,12 +8,17 @@ public class HashEntry
    String fileSize = null;
    String path = null;
    int key = 0;
-   Path reference = null; // link to 
+   String reference; // contains relative path
    
    // get methods
    public int getKey()
    {
       return key;
+   }
+   
+   public String getName()
+   {
+      return fileName;
    }
    
    // set methods
@@ -28,7 +29,6 @@ public class HashEntry
       description = desc;
       fileSize = size;
       path = filePath;
-      System.out.println("---"+path+"---");
       key = nameKey;
       
       setReference(path);
@@ -37,18 +37,18 @@ public class HashEntry
    public void setReference(String pth)
    {
       // setting the reference as a relative path (so substring of the actual path)
-      int length = ("C:\\Users\\Anna\\Documents\\DS2\\").length();
-      reference = Paths.get(pth.substring(length));
+      // in some case the path doesn't exist
+      //System.out.println(pth+"");
+      if (pth.equals(""))
+      {
+         reference = "This path does not exist.";
+      }
+      else
+      {
+         int length = ("C:\\Users\\Anna\\Documents\\DS2").length();
+         reference = pth.substring(length+4);
+      }
+      //System.out.println(reference+"");
    }
    
-   // constructor method
-   /**public HashEntry(String name, String desc, String size, String filePath, int nameKey)
-   {
-      fileName = name;
-      description = desc;
-      fileSize = size;
-      path = filePath;
-      key = nameKey;
-   }
-   **/
 }

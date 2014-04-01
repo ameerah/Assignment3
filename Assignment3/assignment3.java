@@ -4,6 +4,7 @@
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.lang.Runtime;
 
 public class assignment3
 {
@@ -44,13 +45,82 @@ public class assignment3
          filePath = (fileInput.nextLine()).substring(1);
          
          key = getKey(name);
+	
+	System.out.println(name + description + size + filePath + key);
+	displayPicture(name);
          
          entry = new HashEntry(name, description, size, filePath, key);
          
-         table.insertElement(entry);
-         
+         table.insertElement(entry);         
       }
+      fileInput.close();
+      
+      Scanner userInput = new Scanner(System.in);
+      displayOpen();
+      String choice = userInput.nextLine();
+      int picture;
+      
+      while (choice.equalsIgnoreCase("Y"))
+      {
+         displayMenu(table);
+         
+         System.out.println("............................................................");
+         System.out.println("Would you like to see another?");
+         System.out.println("Press \'Y\' to display a menu of pictures or \'N\' to quit.");
+         System.out.println("............................................................");
+         choice = userInput.nextLine();
+      }
+      
+      System.out.println("............................................................");
+      System.out.println("Thank you! Have a nice day.");
+      System.out.println("............................................................");
+      
 	}
+   
+   public static void displayOpen()
+   {
+      System.out.println("............................................................");
+      System.out.println("Hello! Would you like to view some pictures?");
+      System.out.println("Press \'Y\' to display a menu of pictures or \'N\' to quit.");
+      System.out.println("............................................................");
+   }
+   
+   public static void displayMenu(HashTable htab)
+   {
+      int count = 1;
+      String label;
+      for (int i = 0; i <= ((htab).getLength() - 1); i++)
+      {
+         if (htab.table[i] != null)
+         {
+            label = htab.table[i].getName();
+            System.out.println(count + ". " + label);
+            count += 1;
+         }
+      }
+      
+      System.out.println("\nEnter the number of the picture you wish to view:");
+      
+      Scanner keyboard = new Scanner(System.in);
+      int picture = (keyboard.nextInt())-1;
+      
+      displayPicture(((htab).table[picture]).getName());
+      
+   }
+   
+   public static void displayPicture(String fileName)
+   {
+      //Runtime commandPrompt = Runtime.getRuntime();
+      try
+      {
+         Runtime commandPrompt = Runtime.getRuntime();
+         commandPrompt.exec("display " + fileName);
+      }
+      catch (Throwable t)
+      {
+         System.out.println("Could not display file! Perhaps it doesn't exist?");
+      }
+   }
    
    public static int getKey(String fileName)
    {
