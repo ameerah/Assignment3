@@ -28,20 +28,23 @@ public class HashTable
       boolean inserted = false;
       while (inserted == false)
       {
+         // if the chosen index is empty
          if (table[index] == null)
          {
+            // insert new item there
             table[index] = newItem;
             inserted = true;
          }
          else
          {
+            // adds one to check next spot for linear probing; if-else statement handles the wrap-around for reaching end of list
             if (index < (tableSize - 1))
             {
                index += 1;
             }
             else
             {
-               index = 0;
+               index = 0; // start at beginning
             }
          }
       }
@@ -49,6 +52,7 @@ public class HashTable
    
    public int getLength()
    {
+      // returns array length
       return tableSize;
    }
 }

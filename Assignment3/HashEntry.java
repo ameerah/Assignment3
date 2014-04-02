@@ -9,6 +9,7 @@ public class HashEntry
    String path = null;
    int key = 0;
    String reference; // contains relative path
+   int displayIndex; // this is what is actually used as the reference
    
    // get methods
    public int getKey()
@@ -21,19 +22,18 @@ public class HashEntry
       return fileName;
    }
    
-   // set methods
-   
-   public HashEntry(String name, String desc, String size, String filePath, int nameKey)
+   public int getDisplayIndex()
    {
-      fileName = name;
-      description = desc;
-      fileSize = size;
-      path = filePath;
-      key = nameKey;
-      
-      setReference(path);
+      return displayIndex;
    }
    
+   // set methods
+   
+   public void setDisplayIndex(int num)
+   {
+      displayIndex = num;
+   }
+      
    public void setReference(String pth)
    {
       // setting the reference as a relative path (so substring of the actual path)
@@ -45,10 +45,21 @@ public class HashEntry
       }
       else
       {
-         int length = ("C:\\Users\\Anna\\Documents\\DS2").length();
+         int length = ("C:\\Users\\Anna\\Documents\\DS2").length(); // cuts off the bit for the absolute path
          reference = pth.substring(length+4);
       }
-      //System.out.println(reference+"");
    }
    
+   // constructor
+   public HashEntry(String name, String desc, String size, String filePath, int nameKey)
+   {
+      fileName = name;
+      description = desc;
+      fileSize = size;
+      path = filePath;
+      key = nameKey;
+      
+      setReference(path);
+   }
+
 }
